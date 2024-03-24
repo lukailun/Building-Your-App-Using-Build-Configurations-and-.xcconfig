@@ -65,6 +65,9 @@
 		4CA788F326323AF2002E22D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE740052BB041F700662BC9 /* NinjaCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NinjaCounter.entitlements; sourceTree = "<group>"; };
 		5AE740062BB0428A00662BC9 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		5AE7400C2BB0465500662BC9 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		5AE7400D2BB0465F00662BC9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 		4C8BD7BA25EDA257007FB0C1 = {
 			isa = PBXGroup;
 			children = (
+				5AE7400A2BB0457400662BC9 /* Config Files */,
 				5AE740062BB0428A00662BC9 /* WidgetExtension.entitlements */,
 				4C8BD7C525EDA257007FB0C1 /* NinjaCounter */,
 				4CA788EE26323AF1002E22D5 /* Widget */,
@@ -148,6 +152,16 @@
 				4CA788F326323AF2002E22D5 /* Info.plist */,
 			);
 			path = Widget;
+			sourceTree = "<group>";
+		};
+		5AE7400A2BB0457400662BC9 /* Config Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */,
+				5AE7400C2BB0465500662BC9 /* Staging.xcconfig */,
+				5AE7400D2BB0465F00662BC9 /* Release.xcconfig */,
+			);
+			path = "Config Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +434,7 @@
 		};
 		4C8BD7D325EDA25A007FB0C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
