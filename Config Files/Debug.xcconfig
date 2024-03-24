@@ -36,3 +36,5 @@
 #include "Base.xcconfig"
 
 APP_NAME = $(inherited)Dev
+
+USER_DEFAULTS_RECORDS_KEY = HatchlingsRecords-Debug
