@@ -35,7 +35,8 @@ import Foundation
 enum UserDefaultsHelper {
     private static let defaults = UserDefaults(suiteName: Config.stringValue(forKey: "USER_DEFAULTS_SUITE_NAME")) ?? .standard
 
-    private static let recordsKey = "Hatchlings-Records"
+    private static let recordsKey = Config
+        .stringValue(forKey: "USER_DEFAULTS_RECORDS_KEY")
 
     static func getRecords() -> [Hatchling] {
         guard
