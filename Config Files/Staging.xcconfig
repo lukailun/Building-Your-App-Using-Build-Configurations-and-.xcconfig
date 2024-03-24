@@ -38,3 +38,5 @@
 APP_NAME = $(inherited)QA
 
 USER_DEFAULTS_RECORDS_KEY = HatchlingsRecords-Staging
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon-NonProd

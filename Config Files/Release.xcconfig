@@ -36,3 +36,5 @@
 #include "Base.xcconfig"
 
 USER_DEFAULTS_RECORDS_KEY = HatchlingsRecords
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
