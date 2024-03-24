@@ -33,14 +33,14 @@
 import Foundation
 
 struct Hatchling: Codable {
-  var id = UUID()
-  var tag: String
-  var date: Date
+    var id = UUID()
+    var tag: String
+    var date: Date
 
-  static func generatePreviewHatchlings() -> [Hatchling] {
-    let leo = Hatchling(tag: "Leonardo", date: Date())
-    let don = Hatchling(tag: "Donatello", date: Date())
+    static func generatePreviewHatchlings() -> [Hatchling] {
+        let leo = Hatchling(tag: "Leonardo", date: Date())
+        let don = Hatchling(tag: "Donatello", date: Date())
 
-    return [leo, don]
-  }
+        return [leo, don]
+    }
 }

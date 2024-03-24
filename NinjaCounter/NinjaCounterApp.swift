@@ -34,9 +34,9 @@ import SwiftUI
 
 @main
 struct NinjaCounterApp: App {
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
     }
-  }
 }

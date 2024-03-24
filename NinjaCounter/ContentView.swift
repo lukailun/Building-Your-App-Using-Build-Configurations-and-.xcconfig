@@ -33,82 +33,80 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var hatchlings: [Hatchling] = []
-  @State private var tag: String = ""
+    @State var hatchlings: [Hatchling] = []
+    @State private var tag: String = ""
 
-  var body: some View {
-    NavigationView {
-      VStack {
-        List(hatchlings, id: \.id) { ninja in
-          HStack {
-            Text(ninja.tag)
+    var body: some View {
+        NavigationView {
+            VStack {
+                List(hatchlings, id: \.id) { ninja in
+                    HStack {
+                        Text(ninja.tag)
 
-            Spacer()
+                        Spacer()
 
-            Text("Hatch time")
-              .font(.footnote)
-              .foregroundColor(.green)
+                        Text("Hatch time")
+                            .font(.footnote)
+                            .foregroundColor(.green)
 
-            Text(formatDate(ninja.date))
-          }
+                        Text(formatDate(ninja.date))
+                    }
+                }
+                .listStyle(InsetGroupedListStyle())
+                .navigationBarTitle("Ninja Counter")
+                .navigationBarItems(trailing:
+                    Button("Clear") {
+                        hatchlings = []
+                        UserDefaultsHelper.clearRecords()
+                    })
+
+                VStack {
+                    Divider()
+                    HStack {
+                        Text("Tag:")
+                            .padding(.leading)
+                            .foregroundColor(Color("rw-dark"))
+                        TextField("Leonardo", text: $tag)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.trailing)
+                    }
+                    .padding(.top)
+
+                    Button("+ Hatchling") {
+                        recordHatchling()
+                    }
+                    .padding(.bottom)
+                    .font(.largeTitle)
+                }
+            }
         }
-        .listStyle(InsetGroupedListStyle())
-        .navigationBarTitle("Ninja Counter")
-        .navigationBarItems(trailing:
-          Button("Clear") {
-            hatchlings = []
-            UserDefaultsHelper.clearRecords()
-          })
+        .onAppear(perform: loadProducts)
+        .accentColor(Color("rw-green"))
+    }
 
+    func loadProducts() {
+        hatchlings = UserDefaultsHelper.getRecords()
+    }
 
-        VStack {
-          Divider()
-          HStack {
-            Text("Tag:")
-              .padding(.leading)
-              .foregroundColor(Color("rw-dark"))
-            TextField("Leonardo", text: $tag)
-              .textFieldStyle(RoundedBorderTextFieldStyle())
-              .padding(.trailing)
-          }
-          .padding(.top)
-
-          Button("+ Hatchling") {
-            recordHatchling()
-          }
-          .padding(.bottom)
-          .font(.largeTitle)
+    func recordHatchling() {
+        var hatchling = Hatchling(tag: tag, date: Date())
+        if hatchling.tag.isEmpty {
+            let newTag = String(hatchling.id.uuidString.suffix(6))
+            hatchling.tag = newTag
         }
-      }
+        hatchlings.append(hatchling)
+        UserDefaultsHelper.persistRecords(hatchlings)
     }
-    .onAppear(perform: loadProducts)
-    .accentColor(Color("rw-green"))
-  }
 
-
-  func loadProducts() {
-    hatchlings = UserDefaultsHelper.getRecords()
-  }
-
-  func recordHatchling() {
-    var hatchling = Hatchling(tag: tag, date: Date())
-    if hatchling.tag.isEmpty {
-      let newTag = String(hatchling.id.uuidString.suffix(6))
-      hatchling.tag = newTag
+    func formatDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd HH:mm:SS"
+        return dateFormatter.string(from: date)
     }
-    hatchlings.append(hatchling)
-    UserDefaultsHelper.persistRecords(hatchlings)
-  }
-
-  func formatDate(_ date: Date) -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MM/dd HH:mm:SS"
-    return dateFormatter.string(from: date)
-  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView(hatchlings: Hatchling.generatePreviewHatchlings())
-  }
+    static var previews: some View {
+        ContentView(hatchlings: Hatchling.generatePreviewHatchlings())
+    }
 }

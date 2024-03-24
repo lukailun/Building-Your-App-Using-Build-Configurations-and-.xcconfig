@@ -30,84 +30,86 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct Provider: TimelineProvider {
-  func placeholder(in context: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), count: 0, latest: "--")
-  }
-
-  func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
-    let entry = SimpleEntry(
-      date: Date(),
-      count: UserDefaultsHelper.getRecordsCount(),
-      latest: UserDefaultsHelper.getRecords().last?.tag ?? "--")
-    completion(entry)
-  }
-
-  func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
-    var entries: [SimpleEntry] = []
-
-    //    Generate a timeline consisting of five entries an hour apart, starting from the current date.
-    let currentDate = Date()
-    for hourOffset in 0 ..< 5 {
-      if let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) {
-        let entry = SimpleEntry(
-          date: entryDate,
-          count: UserDefaultsHelper.getRecordsCount(),
-          latest: UserDefaultsHelper.getRecords().last?.tag ?? "--")
-        entries.append(entry)
-      }
+    func placeholder(in _: Context) -> SimpleEntry {
+        SimpleEntry(date: Date(), count: 0, latest: "--")
     }
 
-    let timeline = Timeline(entries: entries, policy: .atEnd)
-    completion(timeline)
-  }
+    func getSnapshot(in _: Context, completion: @escaping (SimpleEntry) -> Void) {
+        let entry = SimpleEntry(
+            date: Date(),
+            count: UserDefaultsHelper.getRecordsCount(),
+            latest: UserDefaultsHelper.getRecords().last?.tag ?? "--"
+        )
+        completion(entry)
+    }
+
+    func getTimeline(in _: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+        var entries: [SimpleEntry] = []
+
+        //    Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let currentDate = Date()
+        for hourOffset in 0 ..< 5 {
+            if let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) {
+                let entry = SimpleEntry(
+                    date: entryDate,
+                    count: UserDefaultsHelper.getRecordsCount(),
+                    latest: UserDefaultsHelper.getRecords().last?.tag ?? "--"
+                )
+                entries.append(entry)
+            }
+        }
+
+        let timeline = Timeline(entries: entries, policy: .atEnd)
+        completion(timeline)
+    }
 }
 
 struct SimpleEntry: TimelineEntry {
-  var date: Date
-  let count: Int
-  let latest: String
+    var date: Date
+    let count: Int
+    let latest: String
 }
 
 struct WidgetEntryView: View {
-  var entry: Provider.Entry
+    var entry: Provider.Entry
 
-  var body: some View {
-    VStack {
-      Text("Hatchlings")
-        .bold()
+    var body: some View {
+        VStack {
+            Text("Hatchlings")
+                .bold()
 
-      Text("\(entry.count)")
+            Text("\(entry.count)")
 
-      Divider()
+            Divider()
 
-      Text("Latest Recorded")
-        .bold()
+            Text("Latest Recorded")
+                .bold()
 
-      Text("\(entry.latest)")
+            Text("\(entry.latest)")
+        }
     }
-  }
 }
 
 @main
 struct CounterWidget: Widget {
-  let kind: String = "widget"
+    let kind: String = "widget"
 
-  var body: some WidgetConfiguration {
-    StaticConfiguration(kind: kind, provider: Provider()) { entry in
-      WidgetEntryView(entry: entry)
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            WidgetEntryView(entry: entry)
+        }
+        .configurationDisplayName("My Widget")
+        .description("This is an example widget.")
     }
-    .configurationDisplayName("My Widget")
-    .description("This is an example widget.")
-  }
 }
 
 struct Widget_Previews: PreviewProvider {
-  static var previews: some View {
-    WidgetEntryView(entry: SimpleEntry(date: Date(), count: 4, latest: "Raphael"))
-      .previewContext(WidgetPreviewContext(family: .systemSmall))
-  }
+    static var previews: some View {
+        WidgetEntryView(entry: SimpleEntry(date: Date(), count: 4, latest: "Raphael"))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+    }
 }

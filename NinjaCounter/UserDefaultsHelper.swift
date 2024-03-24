@@ -33,33 +33,33 @@
 import Foundation
 
 enum UserDefaultsHelper {
-  static private let defaults = UserDefaults.standard
+    private static let defaults = UserDefaults.standard
 
-  static private let recordsKey = "Hatchlings-Records"
+    private static let recordsKey = "Hatchlings-Records"
 
-  static func getRecords() -> [Hatchling] {
-    guard
-      let objects = defaults.value(forKey: recordsKey) as? Data,
-      let hatchlings = try? JSONDecoder().decode([Hatchling].self, from: objects)
-    else {
-      return []
+    static func getRecords() -> [Hatchling] {
+        guard
+            let objects = defaults.value(forKey: recordsKey) as? Data,
+            let hatchlings = try? JSONDecoder().decode([Hatchling].self, from: objects)
+        else {
+            return []
+        }
+
+        return hatchlings
     }
 
-    return hatchlings
-  }
-
-  static func persistRecords(_ array: [Hatchling]) {
-    let encoder = JSONEncoder()
-    if let encoded = try? encoder.encode(array) {
-      defaults.set(encoded, forKey: recordsKey)
+    static func persistRecords(_ array: [Hatchling]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(array) {
+            defaults.set(encoded, forKey: recordsKey)
+        }
     }
-  }
 
-  static func clearRecords() {
-    defaults.removeObject(forKey: recordsKey)
-  }
+    static func clearRecords() {
+        defaults.removeObject(forKey: recordsKey)
+    }
 
-  static func getRecordsCount() -> Int {
-    return getRecords().count
-  }
+    static func getRecordsCount() -> Int {
+        return getRecords().count
+    }
 }
