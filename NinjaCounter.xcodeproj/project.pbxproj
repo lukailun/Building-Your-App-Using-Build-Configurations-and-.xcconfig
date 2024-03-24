@@ -455,7 +455,7 @@
 			baseConfigurationReference = 5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(inherited)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NinjaCounter/NinjaCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -480,7 +480,7 @@
 			baseConfigurationReference = 5AE7400D2BB0465F00662BC9 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(inherited)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NinjaCounter/NinjaCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -613,7 +613,7 @@
 			baseConfigurationReference = 5AE7400C2BB0465500662BC9 /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(inherited)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = NinjaCounter/NinjaCounter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
