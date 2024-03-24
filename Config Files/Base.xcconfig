@@ -34,3 +34,9 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 APP_NAME = Ninja Counter
+
+BASE_BUNDLE_IDENTIFIER = com.lukailun.NinjaCounter
+
+PRODUCT_BUNDLE_IDENTIFIER = $(BASE_BUNDLE_IDENTIFIER)
+
+USER_DEFAULTS_SUITE_NAME = group.$(BASE_BUNDLE_IDENTIFIER)
