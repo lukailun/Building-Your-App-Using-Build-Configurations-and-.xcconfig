@@ -72,6 +72,10 @@
 		5AE7400D2BB0465F00662BC9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5AE7400E2BB0492700662BC9 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 		5AE7400F2BB04C3000662BC9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5AE740122BB04FEF00662BC9 /* WidgetBase.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WidgetBase.xcconfig; sourceTree = "<group>"; };
+		5AE740132BB0500A00662BC9 /* WidgetDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WidgetDebug.xcconfig; sourceTree = "<group>"; };
+		5AE740142BB0502800662BC9 /* WidgetStaging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WidgetStaging.xcconfig; sourceTree = "<group>"; };
+		5AE740152BB0503800662BC9 /* WidgetRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WidgetRelease.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,10 @@
 				5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */,
 				5AE7400C2BB0465500662BC9 /* Staging.xcconfig */,
 				5AE7400D2BB0465F00662BC9 /* Release.xcconfig */,
+				5AE740122BB04FEF00662BC9 /* WidgetBase.xcconfig */,
+				5AE740132BB0500A00662BC9 /* WidgetDebug.xcconfig */,
+				5AE740142BB0502800662BC9 /* WidgetStaging.xcconfig */,
+				5AE740152BB0503800662BC9 /* WidgetRelease.xcconfig */,
 			);
 			path = "Config Files";
 			sourceTree = "<group>";
@@ -494,7 +502,7 @@
 		};
 		4CA788F826323AF2002E22D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */;
+			baseConfigurationReference = 5AE740132BB0500A00662BC9 /* WidgetDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -517,7 +525,7 @@
 		};
 		4CA788F926323AF2002E22D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AE7400D2BB0465F00662BC9 /* Release.xcconfig */;
+			baseConfigurationReference = 5AE740152BB0503800662BC9 /* WidgetRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -627,7 +635,7 @@
 		};
 		5AE740092BB0452300662BC9 /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AE7400C2BB0465500662BC9 /* Staging.xcconfig */;
+			baseConfigurationReference = 5AE740142BB0502800662BC9 /* WidgetStaging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
