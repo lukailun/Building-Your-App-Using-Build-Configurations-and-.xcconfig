@@ -1,15 +1,15 @@
-/// Copyright (c) 2021 Razeware LLC
-///
+/// Copyright (c) 2024 Razeware LLC
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -30,36 +30,13 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
-
-enum UserDefaultsHelper {
-    private static let defaults = UserDefaults(suiteName: Config.stringValue(forKey: "USER_DEFAULTS_SUITE_NAME")) ?? .standard
-
-    private static let recordsKey = "Hatchlings-Records"
-
-    static func getRecords() -> [Hatchling] {
-        guard
-            let objects = defaults.value(forKey: recordsKey) as? Data,
-            let hatchlings = try? JSONDecoder().decode([Hatchling].self, from: objects)
-        else {
-            return []
-        }
-
-        return hatchlings
+enum Config {
+  static func stringValue(forKey key: String) -> String {
+    guard let value = Bundle.main.object(forInfoDictionaryKey: key) as? String
+    else {
+      fatalError("Invalid value or undefined key")
     }
-
-    static func persistRecords(_ array: [Hatchling]) {
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(array) {
-            defaults.set(encoded, forKey: recordsKey)
-        }
-    }
-
-    static func clearRecords() {
-        defaults.removeObject(forKey: recordsKey)
-    }
-
-    static func getRecordsCount() -> Int {
-        return getRecords().count
-    }
+    return value
+  }
 }
+

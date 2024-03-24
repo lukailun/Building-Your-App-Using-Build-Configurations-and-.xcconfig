@@ -21,6 +21,8 @@
 		4CA788F626323AF2002E22D5 /* WidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4CA788E826323AF1002E22D5 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4CA788FB26323B8A002E22D5 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8BD89325F15F81007FB0C1 /* UserDefaultsHelper.swift */; };
 		4CA788FC26323B90002E22D5 /* Hatchling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8BD89025F15F67007FB0C1 /* Hatchling.swift */; };
+		5AE740102BB04CA400662BC9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7400F2BB04C3000662BC9 /* Config.swift */; };
+		5AE740112BB04CA500662BC9 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7400F2BB04C3000662BC9 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		5AE7400C2BB0465500662BC9 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		5AE7400D2BB0465F00662BC9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5AE7400E2BB0492700662BC9 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		5AE7400F2BB04C3000662BC9 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		4C8BD7BA25EDA257007FB0C1 = {
 			isa = PBXGroup;
 			children = (
+				5AE7400F2BB04C3000662BC9 /* Config.swift */,
 				5AE7400A2BB0457400662BC9 /* Config Files */,
 				5AE740062BB0428A00662BC9 /* WidgetExtension.entitlements */,
 				4C8BD7C525EDA257007FB0C1 /* NinjaCounter */,
@@ -292,6 +296,7 @@
 			files = (
 				4C8BD7C925EDA257007FB0C1 /* ContentView.swift in Sources */,
 				4C8BD7C725EDA257007FB0C1 /* NinjaCounterApp.swift in Sources */,
+				5AE740102BB04CA400662BC9 /* Config.swift in Sources */,
 				4C8BD89425F15F81007FB0C1 /* UserDefaultsHelper.swift in Sources */,
 				4C8BD89125F15F67007FB0C1 /* Hatchling.swift in Sources */,
 			);
@@ -302,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CA788FB26323B8A002E22D5 /* UserDefaultsHelper.swift in Sources */,
+				5AE740112BB04CA500662BC9 /* Config.swift in Sources */,
 				4CA788F026323AF1002E22D5 /* Widget.swift in Sources */,
 				4CA788FC26323B90002E22D5 /* Hatchling.swift in Sources */,
 			);
