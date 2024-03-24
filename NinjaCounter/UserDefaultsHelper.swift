@@ -33,7 +33,7 @@
 import Foundation
 
 enum UserDefaultsHelper {
-    private static let defaults = UserDefaults.standard
+    private static let defaults = UserDefaults(suiteName: "group.com.lukailun.NinjaCounter") ?? .standard
 
     private static let recordsKey = "Hatchlings-Records"
 
