@@ -33,6 +33,4 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "Base.xcconfig"
-
-APP_NAME = $(inherited)Dev
+APP_NAME = Ninja Counter

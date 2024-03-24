@@ -68,6 +68,7 @@
 		5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		5AE7400C2BB0465500662BC9 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		5AE7400D2BB0465F00662BC9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		5AE7400E2BB0492700662BC9 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +158,7 @@
 		5AE7400A2BB0457400662BC9 /* Config Files */ = {
 			isa = PBXGroup;
 			children = (
+				5AE7400E2BB0492700662BC9 /* Base.xcconfig */,
 				5AE7400B2BB0459B00662BC9 /* Debug.xcconfig */,
 				5AE7400C2BB0465500662BC9 /* Staging.xcconfig */,
 				5AE7400D2BB0465F00662BC9 /* Release.xcconfig */,
